@@ -1,77 +1,90 @@
-\documentclass[a4paper, 12pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath, amssymb}
-\usepackage{tikz}
-\usepackage{array}
-\usetikzlibrary{calc}
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=1.5cm, bottom=1.5cm]{geometry}
+
+
+\title{Valószínűségszámítás Feladatmegoldások}
+\author{}
+\date{2025/2. félév}
 
 \begin{document}
+\maketitle
 
-\section*{Abszolút folytonos valószínűségi változók megoldásai}
+\section{Valószínűségek kiszámítása (ismétlés: kombinatorika)}
 
-\subsection*{Elméleti összefoglaló}
-Legyen \( X \) abszolút folytonos valószínűségi változó \( f(x) \) sűrűségfüggvénnyel. Alapvető összefüggések:
+\subsection*{1.3. Feladat:}
+Ha egy magyarkártya-csomagból (32 lap: piros, zöld, makk, tök) visszatevéssel húzunk három lapot, akkor mi
+annak a valószínűsége, hogy:
+
+\subsubsection*{a) pontosan egy piros színű lapot húztunk?}
 \begin{itemize}
-    \item Eloszlásfüggvény: \( F(x) = \int_{-\infty}^x f(t) \, dt \)
-    \item Normalizációs feltétel: \( \int_{-\infty}^{\infty} f(x) \, dx = 1 \)
-    \item Valószínűség számítás: \( P(a < X \leq b) = F(b) - F(a) \)
-    \item Várható érték: \( E[X] = \int_{-\infty}^{\infty} x f(x) \, dx \)
+    \item $A = \text{\{pontosan 1 db piros színű lapot húztunk\}}$
+    \item $P(A) = ?$
+    \item $ \Omega = \text{\{(P1,P1,P1), (P1,P1,P2)...\}}$
+\end{itemize}
+\[P(A) = \frac{\text{kedvező}}{\text{összes}} = 
+    \frac{8 \cdot 24 \cdot 24 + 24 \cdot 8 \cdot 24 + 24 \cdot 24 \cdot 8}{32^3} = \\
+    \frac{3}{1} \cdot \frac{8}{32}^1 \cdot \frac{24}{32}^2
+\]
+\textit{Megjegyzés:  $\frac{3}{1}$ : 3db-ból választunk, $\frac{8}{32}^1$ 1db piros  $\frac{24}{32}^2$ 2db nem piros}
+
+\vspace{1em} 
+\subsubsection*{b) legalább egy piros színű lapot húztunk?}
+\begin{itemize}
+    \item $B = \text{\{legalább 1 db piros színű lapot húztunk\}}$
+\end{itemize}
+\[1-P( \overline B) = 1 - \frac{24^3}{32^3}\]
+
+
+\subsection*{1.4 Feladat}
+Egy zsákban 10 pár cipő van. 4 db-ot kiválasztva, mi a valószínűsége, hogy van közöttük pár, ha:
+
+\subsubsection*{a) egyformák a párok}
+\begin{itemize}
+ \item cipők száma: $2 \cdot 10$ azaz 20 db
+\end{itemize}
+\[ P( \text{lesz pár}) = 1 - P( \overline{\text{lesz pár}}) = 1 -\frac{2 \cdot \binom{10}{4}}{\binom{20}{4}} \]
+
+
+\subsection*{1.5. Feladat}
+ \textbf{n} dobozba véletlenszerűen helyezünk el \textbf{n} golyót úgy, hogy bármennyi golyó kerülhet az egyes dobozokba.
+\begin{itemize}
+    \item \textbf{n} doboz \textbf{n} golyó
+   \end{itemize}
+\subsubsection*{a) Mi a valószínűsége, hogy minden dobozba kerül golyó?}
+\[ \text{P(minden dobozba kerül golyó)} = \frac{n!}{n^n} \]
+\textit{Megjegyzés: összes lehetséges eset: $n^n$ mivel egy dobozba több golyó is lehet, kedvező eset: $n!$ mivel elősbe n-ből lehet választani, másodikba $(n-1)$ből ...}
+
+
+\subsubsection*{b) Annak mi a valószínűsége, hogy pontosan egy doboz marad üresen?}
+\[ \text{P(pont egy doboz üres)} = \frac{n(n-1)n!\frac{1}{2}}{n^n} \]
+\textit{?????}
+
+\section{Feltételes valószínűség és Bayes-tétel, diszkrét valószínűségi változók}
+\subsection{2.12. Feladat}
+Jelölje X az ötöslottón kihúzott lottószámok legkisebbikét. Adjuk meg X eloszlását!
+
+\begin{itemize}
+    \item 90 szám, 5-öt húzunk ki
+    \item x := a legkisebb kihúzott szám
+    \item eloszlása = ?
 \end{itemize}
 
-\subsection*{4.1 Feladat megoldása}
-\textbf{Adott:} \( F(x) = c x^3 \) a \( [0, 3] \) intervallumon.\\
-\textbf{Keressük:} \( c \) és \( P(-1 < Y < 1) \).
+\[ P_k =  \mathbb{P}(x=k) = \frac{\binom{90-k}{4}}{\binom{90}{5}}\]
+\textit{Megjegzés: a legkisebb szám 1-től 86ig lehet}
 
-\begin{align*}
-    \int_0^3 3c x^2 \, dx &= 1 \\
-    3c \left[ \frac{x^3}{3} \right]_0^3 &= 1 \\
-    9c &= 1 \quad \Rightarrow \quad \boxed{c = \dfrac{1}{27}} \\
-    P(0 \leq Y < 1) &= F(1) - F(0) = \dfrac{1}{27} \cdot 1^3 = \boxed{\dfrac{1}{27}}
-\end{align*}
 
-\subsection*{4.2 Feladat megoldása}
-\textbf{Adott:} \( f(x) = \begin{cases} \frac{1}{9}x^2, & 0 \leq x < c \\ 0, & \text{különben} \end{cases} \).\\
-\textbf{Keressük:} \( c \) és \( F(x) \).
+\subsection{2.9. Feladat}
+Tegyük fel, hogy az új internet-előfizetők véletlenszerűen választott 20\%-a speciális kedvezményt kap. Mi a
+valószínűsége, hogy 10 ismerősünk közül, akik most fizettek elő, legalább négyen részesülnek a kedvezményben?
 
-\begin{align*}
-    \int_0^c \frac{1}{9}x^2 \, dx &= 1 \\
-    \frac{1}{27}c^3 &= 1 \quad \Rightarrow \quad \boxed{c = 3} \\
-    F(x) &= \int_0^x \frac{1}{9}t^2 \, dt = \dfrac{x^3}{27} \quad (0 \leq x \leq 3) \\
-    F(x) &= \begin{cases}
-        0, & x < 0 \\
-        \dfrac{x^3}{27}, & 0 \leq x \leq 3 \\
-        1, & x > 3
-    \end{cases}
-\end{align*}
+\[ P_k = \mathbb{P}(x=k) = \binom{n}{k} p^k (n-p)^n-k \]
+\[ \mathbb{P}(x \geq k) = \sum_{k=4}^{10} {\mathbb{P}(x=k)} =\sum_{k=4}^{10} {P_k}  \]
+\[ 1 - \mathbb{P}(x \leq k) = 1 - \sum_{k=0}^{3} {P_k}  \]
 
-\subsection*{4.4 Feladat megoldása}
-\textbf{Adott:} \( f(x) = \begin{cases} \dfrac{c}{x^4}, & x > 1 \\ 0, & \text{különben} \end{cases} \).\\
-\textbf{Keressük:} \( c \) és \( E[X] \).
 
-\begin{align*}
-    \int_1^\infty \frac{c}{x^4} \, dx &= 1 \\
-    c \left[ -\dfrac{1}{3x^3} \right]_1^\infty &= 1 \\
-    \dfrac{c}{3} &= 1 \quad \Rightarrow \quad \boxed{c = 3} \\
-    E[X] &= \int_1^\infty x \cdot \frac{3}{x^4} \, dx = 3 \int_1^\infty x^{-3} \, dx \\
-    &= 3 \left[ -\dfrac{1}{2x^2} \right]_1^\infty = \boxed{\dfrac{3}{2}}
-\end{align*}
-
-\subsection*{Eredmények összehasonlítása}
-\begin{center}
-    \begin{tabular}{|l|c|c|}
-    \hline
-    Feladat & \( c \) értéke & Fő eredmény \\ \hline
-    4.1 & \( \dfrac{1}{27} \) & \( P(-1<Y<1) = \dfrac{1}{27} \) \\ \hline
-    4.2 & 3 & \( F(x) = \dfrac{x^3}{27} \) \\ \hline
-    4.4 & 3 & \( E[X] = \dfrac{3}{2} \) \\ \hline
-    \end{tabular}
-\end{center}
-
-\begin{tikzpicture}
-    \draw[->] (-0.5,0) -- (4,0) node[right] {$x$};
-    \draw[->] (0,-0.5) -- (0,3) node[above] {$f(x)$};
-    \draw[domain=1:3,smooth,variable=\x,blue] plot ({\x},{3/(\x^4)});
-    \node at (2,1.5) {4.4 feladat sűrűségfüggvénye};
-\end{tikzpicture}
 
 \end{document}
+
