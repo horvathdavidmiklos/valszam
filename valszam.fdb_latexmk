@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1742169131.06411 "/home/horvathd1/Dokumentumok/repositories/valszam/valszam/valszam.tex" "valszam.pdf" "valszam" 1742169131.51661 0
+["pdflatex"] 1742206175.92261 "/home/horvathd1/Dokumentumok/repositories/valszam/valszam/valszam.tex" "valszam.pdf" "valszam" 1742206176.41444 0
   "/etc/texmf/web2c/texmf.cnf" 1737196406.09193 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/horvathd1/Dokumentumok/repositories/valszam/valszam/valszam.tex" 1742169130.85139 3406 4d56704339bf1e34c45297cea3c0076f ""
+  "/home/horvathd1/Dokumentumok/repositories/valszam/valszam/valszam.tex" 1742206175.71749 3975 d7c2c68fdf3950aec5c0af1c0c3564d0 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -63,8 +63,8 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1737196633.53574 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1737196678 8212400 6947d9e947b3249c6be8cf3031eb2891 ""
-  "valszam.aux" 1742169131.45738 565 63729a7284c06fda9496c17d5b53e7ab "pdflatex"
-  "valszam.tex" 1742169130.85139 3406 4d56704339bf1e34c45297cea3c0076f ""
+  "valszam.aux" 1742206176.35948 354 d1da17e4c3c908bc1709df8a8acca94f "pdflatex"
+  "valszam.tex" 1742206175.71749 3975 d7c2c68fdf3950aec5c0af1c0c3564d0 ""
   (generated)
   "valszam.aux"
   "valszam.log"

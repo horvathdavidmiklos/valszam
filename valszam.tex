@@ -63,7 +63,7 @@ Egy zsákban 10 pár cipő van. 4 db-ot kiválasztva, mi a valószínűsége, ho
 \textit{?????}
 
 \section{Feltételes valószínűség és Bayes-tétel, diszkrét valószínűségi változók}
-\subsection{2.12. Feladat}
+\subsection*{2.12. Feladat}
 Jelölje X az ötöslottón kihúzott lottószámok legkisebbikét. Adjuk meg X eloszlását!
 
 \begin{itemize}
@@ -76,7 +76,7 @@ Jelölje X az ötöslottón kihúzott lottószámok legkisebbikét. Adjuk meg X 
 \textit{Megjegzés: a legkisebb szám 1-től 86ig lehet}
 
 
-\subsection{2.9. Feladat}
+\subsection*{2.9. Feladat}
 Tegyük fel, hogy az új internet-előfizetők véletlenszerűen választott 20\%-a speciális kedvezményt kap. Mi a
 valószínűsége, hogy 10 ismerősünk közül, akik most fizettek elő, legalább négyen részesülnek a kedvezményben?
 
@@ -85,6 +85,15 @@ valószínűsége, hogy 10 ismerősünk közül, akik most fizettek elő, legal�
 \[ 1 - \mathbb{P}(x \leq k) = 1 - \sum_{k=0}^{3} {P_k}  \]
 
 
+\subsection*{2.1. Feladat}
+Mennyi a valószínűsége, hogy két kockadobásnál mind a két dobás 6-os, feltéve, hogy tudjuk, hogy legalább az
+egyik dobás 6-os?
 
+\begin{itemize}
+    \item A = \{legalább egy hatos\}
+    \item B = \{mindkettő hatos\}
+\end{itemize}
+\[ \mathbb{P}(B|A) = \frac{\mathbb{P}(A \ \cap B)}{\mathbb{P}(A)} = \frac{\frac{1}{36}}{\frac{11}{36}} = \frac{1}{11} \quad \quad (\mathbb{P}(A) > 0)\] 
+\textit{Megjegyzés: A és B esemény független, akkor áll fen az egyenlet vagyis: $\mathbb{P}(A \cap B) = \mathbb{P}(A) \cdot \mathbb{P}(B)$}
 \end{document}
 
